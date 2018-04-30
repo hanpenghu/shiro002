@@ -27,9 +27,14 @@
         </jdbcConnection>-->
 
 
-        <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+       <!-- <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
                         connectionURL="jdbc:sqlserver://118.31.67.127:7201;DatabaseName=DB_BARC" userId="sa"
                         password="f3h2y7e!2+changning#">
+        </jdbcConnection>-->
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/shiro_test?useUnicode=true&amp;characterEncoding=UTF-8" userId="root"
+                        password="root">
         </jdbcConnection>
         <!--<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
                         connectionURL="jdbc:sqlserver://114.55.143.240:1488;DatabaseName=DB_ZMT" userId="sa"
@@ -51,7 +56,7 @@
         </javaTypeResolver>
 
         <!-- targetProject:生成PO类的位置，重要！！ -->
-        <javaModelGenerator targetPackage="com.ipacedev.tcode.dto"
+        <javaModelGenerator targetPackage="han.com.test.po"
             targetProject=".\src\main\java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
@@ -62,15 +67,15 @@
         
         
         <!-- targetProject:mapper映射文件生成的位置，重要！！ -->
-        <sqlMapGenerator targetPackage="resources.mybatis.XMLmapperChanPinKu"
-            targetProject=".\src\main">
+        <sqlMapGenerator targetPackage="han.com.test.mapper"
+            targetProject=".\src\main\java">
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
         
         
         <!-- targetPackage：mapper接口生成的位置，重要！！ -->
         <javaClientGenerator type="XMLMAPPER"
-            targetPackage="com.ipacedev.tcode.dao.mapperJava01ChanPinKu"
+            targetPackage="han.com.test.mapper"
             targetProject=".\src\main\java">
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
@@ -82,7 +87,11 @@
         	enableSelectByExample="false"
         ></table> -->
         <!--dept cust salm my_wh-->
-        <table tableName="excha"></table>
+        <table tableName="sys_permission"></table>
+        <table tableName="sys_role"></table>
+        <table tableName="sys_role_permission"></table>
+        <table tableName="sys_user"></table>
+        <table tableName="sys_user_role"></table>
       	 <!--<table tableName="LXSKT"></table>-->
         <!--<table tableName="mf_ic"></table>-->
      <!--   <table tableName="tenant"></table>-->
