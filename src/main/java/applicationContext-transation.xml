@@ -17,13 +17,16 @@
 	 <!-- 使用声明式事务配置，可以有效规范代码 -->
 	 
 	 <!-- 事务管理器 -->
-	 <bean id="transactionManager" 
+	 <bean id="transactionManager1"
 	 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	 	<property name="dataSource" ref="dataSource"/>
 	 </bean>
+
+	<!-- 开启注解方式的事务管理-->
+	<tx:annotation-driven transaction-manager="transactionManager1"/>
 	 
 	 <!-- 通知 -->
-	 <tx:advice id="txAdvice" transaction-manager="transactionManager">
+	<!-- <tx:advice id="txAdvice" transaction-manager="transactionManager">
 	 	<tx:attributes>
 	 		<tx:method name="save*" propagation="REQUIRED"/>
 	 		<tx:method name="insert*" propagation="REQUIRED"/>
@@ -33,12 +36,12 @@
 	 		<tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
 	 		<tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
 	 	</tx:attributes>
-	 </tx:advice>
+	 </tx:advice>-->
 	 
 	 <!-- aop -->
-	 <aop:config>
+	<!-- <aop:config>
 	 	<aop:advisor advice-ref="txAdvice"
 	 				 pointcut="execution(* cn.itcast.ssm.service.impl.*.*(..))"/>
-	 </aop:config>
+	 </aop:config>-->
 	
 </beans>

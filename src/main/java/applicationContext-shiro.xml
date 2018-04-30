@@ -91,19 +91,20 @@
 
 <!-- 会话管理器 -->
     <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
-        <!-- session的失效时长，单位毫秒 -->
+        <!-- session的失效时长，单位毫秒 ,10分钟-->
         <property name="globalSessionTimeout" value="600000"/>
         <!-- 删除失效的session -->
         <property name="deleteInvalidSessions" value="true"/>
     </bean>
 
 <!-- 自定义form认证过虑器 -->
-<!-- 基于Form表单的身份验证过滤器，不配置将也会注册此过虑器，表单中的用户账号、密码及loginurl将采用默认值，建议配置 -->
+<!-- 基于Form表单的身份验证过滤器，不配置将也会注册此过虑器，
+表单中的用户账号、密码及loginurl将采用默认值，建议配置 -->
 	<bean id="formAuthenticationFilter" 
-	class="cn.itcast.ssm.shiro.CustomFormAuthenticationFilter ">
-		<!-- 表单中账号的input名称 -->
+	class="han.com.test.shiro.CustomFormAuthenticationFilter">
+		<!-- 表单中账号的input名称 必须写成username-->
 		<property name="usernameParam" value="username" />
-		<!-- 表单中密码的input名称 -->
+		<!-- 表单中密码的input名称 ,必须写成password-->
 		<property name="passwordParam" value="password" />
 		<!-- 记住我input的名称 -->
 		<property name="rememberMeParam" value="rememberMe"/>
